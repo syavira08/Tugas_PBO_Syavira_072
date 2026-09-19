@@ -9,7 +9,7 @@
 
 ## 📌 Penjelasan Studi Kasus
 
-Program ini adalah **Sistem Manajemen Ruang Meeting** berbasis Command Line Interface (CLI) yang dibuat menggunakan bahasa Java di NetBeans. Program ini digunakan untuk mengelola data ruang meeting beserta jadwal penggunaannya dalam sebuah perusahaan/organisasi, agar tidak terjadi bentrok penggunaan ruangan pada waktu yang sama.
+Program ini adalah **Sistem Manajemen Ruang Meeting** yang dibuat menggunakan bahasa Java di NetBeans. Program ini digunakan untuk mengelola data ruang meeting beserta jadwal penggunaannya dalam sebuah perusahaan/organisasi, agar tidak terjadi bentrok penggunaan ruangan pada waktu yang sama.
 
 Fitur utama program:
 

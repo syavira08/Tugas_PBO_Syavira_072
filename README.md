@@ -1,24 +1,23 @@
 # Sistem Manajemen Ruang Meeting
 
-## 👤 Identitas Mahasiswa
-
 - **Nama** : Syavira Firnanda Prawiro
-- **NIM**  : *2509116072*
+- **NIM**  : 2509116072
 
 ---
 
-## 📌 Penjelasan Studi Kasus
+## Penjelasan Studi Kasus
 
-Program ini adalah **Sistem Manajemen Ruang Meeting** yang dibuat menggunakan bahasa Java di NetBeans. Program ini digunakan untuk mengelola data ruang meeting beserta jadwal penggunaannya dalam sebuah perusahaan/organisasi, agar tidak terjadi bentrok penggunaan ruangan pada waktu yang sama.
+Program ini adalah **Sistem Manajemen Ruang Meeting** yang digunakan untuk mengelola data ruang meeting beserta jadwal penggunaannya dalam sebuah perusahaan/organisasi, agar tidak terjadi bentrok penggunaan ruangan pada waktu yang sama.
 
 Fitur utama program:
 
-1. **Kelola Ruang Meeting** — tambah, lihat, dan hapus data ruang (nama, kapasitas, fasilitas).
-2. **Kelola Pengguna** — tambah, lihat, dan hapus data pengguna (nama, departemen) yang akan memakai ruang.
+1. **Kelola Ruang Meeting** — tambah, lihat, dan hapus data ruang yaitu nama, kapasitas, dan fasilitas.
+2. **Kelola Pengguna** — tambah, lihat, dan hapus data pengguna yaitu nama dan departemen yang akan memakai ruang.
 3. **Kelola Booking** — mencatat penggunaan ruang oleh pengguna tertentu pada tanggal dan jam tertentu.
 4. **Tampilkan Jadwal Meeting** — menampilkan seluruh jadwal booking yang sudah dibuat.
+<br>
 
-5. ## Struktur Class
+## Struktur Class
 
 ```
 Ruangan  (abstract)
@@ -41,6 +40,7 @@ ManajemenRuangMeeting   → class utama, tempat method main() dan menu program
 | `Pengguna` | Menyimpan data orang yang melakukan booking |
 | `Booking` | Menghubungkan `Ruangan` dan `Pengguna` beserta jadwalnya |
 | `ManajemenRuangMeeting` | Menjalankan menu dan alur program |
+<br>
 
 ## Penerapan Inheritance
 
@@ -84,35 +84,44 @@ class RuangBesar extends Ruangan {
 }
 ```
 
-Poin pentingnya:
+Penjelasan kode:
 
-- `extends` → menandakan `RuangKecil`/`RuangBesar` adalah turunan dari `Ruangan`
-- `super(...)` → memanggil constructor milik superclass
-- `jenisRuang()` → method abstract yang diisi berbeda di tiap subclass
+- `extends` berfungsi untuk menandakan `RuangKecil`/`RuangBesar` adalah turunan dari `Ruangan`
+- `super` berfungsi untuk memanggil constructor milik superclass
+- `jenisRuang()` adalah method abstract yang diisi berbeda di tiap subclass
 
 Saat pengguna menambah ruang baru, program otomatis memilih subclass yang tepat berdasarkan kapasitas yang diinput.
 
-## Cara Menjalankan
+## Alur Program
 
-1. Buka project di NetBeans
-2. Klik kanan file `ManajemenRuangMeeting.java` → **Run File**
-3. Ikuti menu yang muncul di layar
+### 1. Kelola Ruang Meeting
+<img width="500" alt="Screenshot 2026-09-20 181452" src="https://github.com/user-attachments/assets/18656a73-4edc-4b2a-a316-6fefd58324fd" />
+<br>
+<img width="700" alt="Screenshot 2026-09-20 181642" src="https://github.com/user-attachments/assets/a08b016e-0ac2-4e4c-a20a-12ea8e62789a" />
+<br>
+Pada tahap awal, pengguna memilih menu Kelola Ruang Meeting lalu memilih opsi untuk menambah ruangan baru. Pengguna diminta menginput nama ruang, kapasitas, dan fasilitas. Sistem kemudian memproses kapasitas yang diinput; jika kapasitasnya lebih dari 15 orang, sistem secara otomatis mengategorikan ruangan tersebut sebagai Ruang Besar dan menyimpannya ke daftar ruangan.
 
-## Screenshot Program
+### 2. Kelola Pengguna 
+<img width="500" alt="Screenshot 2026-09-20 181759" src="https://github.com/user-attachments/assets/1da1591e-db4d-4cec-ab1f-9153ad8eff2d" />
+<br>
+<img width="400" alt="Screenshot 2026-09-20 181902" src="https://github.com/user-attachments/assets/9392a83e-8d6f-4073-81df-adb322eb41ef" />
+<br>
+Selanjutnya, pengguna masuk ke menu Kelola Pengguna untuk mendaftarkan identitas orang yang akan melakukan pemesanan. Pengguna menginputkan nama lengkap serta nama departemennya. Data ini kemudian disimpan oleh sistem sebagai objek pengguna baru yang siap dipilih saat proses booking ruangan nanti.
 
-Tempatkan gambar di sini:
+### 3. Kelola Booking
+<img width="600" alt="Screenshot 2026-09-20 182059" src="https://github.com/user-attachments/assets/b82d45ac-4079-4b8f-9f52-1b2552d9d87b" />
+<br>
+<img width="600" alt="Screenshot 2026-09-20 182125" src="https://github.com/user-attachments/assets/c6e3a729-8389-4929-a846-f2fe24a5b045" />
+<br>
+Setelah data ruangan dan pengguna tersedia, pengguna memilih menu Kelola Booking untuk membuat jadwal meeting baru. Sistem akan menampilkan daftar ruangan dan daftar pengguna yang sudah diinput sebelumnya agar pengguna bisa memilih nomornya. Setelah memilih ruangan dan pemesan, pengguna menginputkan tanggal, jam pelaksanaan, serta keperluan meeting, lalu sistem akan menggabungkan seluruh informasi tersebut menjadi satu data booking.
 
-![Tampilan program](screenshots/tampilan-program.png)
+### 4. Menampilkan Jadwal Meeting
+<img width="700" alt="Screenshot 2026-09-20 182215" src="https://github.com/user-attachments/assets/edfaa08e-7275-451e-a82c-36b68f7ce8b8" />
+<br>
+Pengguna dapat memilih menu Tampilkan Jadwal Meeting untuk melihat seluruh transaksi pemesanan yang telah berhasil dibuat. Sistem akan mencetak daftar jadwal secara rapi dengan format gabungan yang menampilkan nama ruangan, tanggal, jam, nama pemesan, dan keperluan meeting.
 
-**Cara memasangnya:**
+### 5. Mengakhiri Program
+<img width="500" alt="Screenshot 2026-09-20 182352" src="https://github.com/user-attachments/assets/69601e38-3c57-4216-bba8-16a266372593" />
+<br>
+Setelah seluruh aktivitas pengelolaan selesai, pengguna memilih opsi menu Keluar. Sistem kemudian menampilkan pesan penutup "Terima kasih!" dan secara otomatis menghentikan pengulangan menu utama program.
 
-1. Buat folder bernama `screenshots` di root repository (sejajar dengan folder `src`)
-2. Simpan screenshot hasil running program ke folder itu dengan nama `tampilan-program.png`
-3. Nama file di langkah 2 harus sama persis dengan nama file pada baris gambar di atas
-
-Kalau mau menambah screenshot lain (misalnya per-menu), tinggal tambah baris baru dengan pola yang sama:
-
-```markdown
-![Menu Kelola Ruang](screenshots/menu-ruang.png)
-![Menu Kelola Booking](screenshots/menu-booking.png)
-```
